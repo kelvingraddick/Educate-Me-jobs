@@ -73,4 +73,4 @@ cron.schedule(process.env.JOB_ALERT_JOB_CRON_EXPRESSION, async function() {
 
 });
 
-app.listen(3000);
+app.listen(process.env.port);
