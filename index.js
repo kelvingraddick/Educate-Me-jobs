@@ -7,70 +7,56 @@ const Email = require('./helpers/email/email');
 app = express();
 
 cron.schedule(process.env.JOB_ALERT_JOB_CRON_EXPRESSION, async function() {
-  
-  const search = {
-    query: '',
-    title: '',
-    location: '',
-    skip: 0,
-    limit: 10
-  };
+  const jobName = 'JOB_ALERT_JOB';
+  console.info('\n');
+  console.info(jobName + ': START RUN ---------');
 
-  let query = Database.Job.find();
-
-  if (search.query) {
-    query.or([
-      { 'title': { $regex: search.query || '', $options: 'i' } },
-      { 'description': { $regex: search.query || '', $options: 'i' } }
-    ])
-  }
-
-  if (search.title) {
-    query.where('title', { $regex: search.title || '', $options: 'i' });
-  }
-
-  if (search.location) {
-    query.or([
-      { 'addressName': { $regex: search.location, $options: 'i' } },
-      { 'city': { $regex: search.location, $options: 'i' } },
-      { 'state': { $regex: search.location, $options: 'i' } },
-      { 'zipCode': { $regex: search.location, $options: 'i' } }
-    ])
-  }
-
-  query.select('-password');
-  query.setOptions({
-    skip: parseInt(search.skip),
-    limit: parseInt(search.limit)
-  });
-
-  const jobs = await query
+  const allJobs = await Database.Job
+    .find()
     .exec()
     .catch((error) => { console.error(error.message); });
 
-  let jobsHTML = '';
-  for (const job of jobs) {
-    jobsHTML += `<br />
-      <b>` + job.title + '</b> ' + job.city + '<br />' + job.description + `
-    <br />`;
+  const allEducators  = await Database.Educator
+    .find()
+    .select('-password')
+    .exec()
+    .catch((error) => { console.error(error.message); });
+
+  for (const educator of allEducators) {
+    console.info('\n');
+    console.info(jobName + ': EDUCATOR:');
+    console.info(educator);
+    try {
+      const matchingJobs = allJobs.filter(x => educator.locations && educator.locations.includes((x.city + ', ' + x.state)));
+      console.info(jobName + ': MATCHING JOBS:');
+      console.info(matchingJobs);
+
+      let jobsHTML = '';
+      for (const matchingJob of matchingJobs) {
+        jobsHTML  += `<br />
+          <b>` + matchingJob.title + '</b> ' + matchingJob.city + '<br />' + matchingJob.description + `
+        <br />`;
+      }
+
+      await Email.send(
+        educator.emailAddress,
+        'You have new job alerts from Educate ME!',
+        'Check out these job alerts that were matched to you!',
+        Email.templates.JOB_ALERT,
+        {
+          jobs: jobsHTML
+        })
+        .then(() => {}, error => console.error('Email error: ' + error.message))
+        .catch(error => console.error('Email error: ' + error.message));
+    
+    } catch (error) {
+      console.error(error.message);
+    };
+    console.info('\n');
   }
 
-  await Email.send(
-    'kelvingraddick@gmail.com',
-    'You have new job alerts from Educate ME!',
-    'Check out these job alerts that were matched to you!',
-    Email.templates.JOB_ALERT,
-    {
-      jobs: jobsHTML
-    })
-    .then(() => {}, error => console.error('Email error: ' + error.message))
-    .catch(error => console.error('Email error: ' + error.message));
-
-  console.info('');
-  console.info('RUN:');
-  console.info(JSON.stringify(jobs));
-  console.info('');
-
+  console.info(jobName + ': END RUN ---------');
+  console.info('\n');
 });
 
 app.listen(process.env.port);
