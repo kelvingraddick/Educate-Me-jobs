@@ -1,2 +1,2 @@
 # Educate-Me-jobs
-Various schedule jobs for the Educate ME platform / Node.js app
+Various schedule jobs for the EDCOM HQ Jobs platform / Node.js app

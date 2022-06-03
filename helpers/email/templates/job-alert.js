@@ -126,21 +126,21 @@ const JobAlertEmailTemplate = `
                                         <td role="modules-container" style="padding:0px 0px 0px 0px; color:#353535; text-align:left;" bgcolor="#f5f5f5" width="100%" align="left"><table class="module preheader preheader-hide" role="module" data-type="preheader" border="0" cellpadding="0" cellspacing="0" width="100%" style="display: none !important; mso-hide: all; visibility: hidden; opacity: 0; color: transparent; height: 0; width: 0;">
     <tr>
       <td role="module-content">
-        <p>Here are your job alerts from Educate ME!</p>
+        <p>Here are your job alerts from EDCOM HQ Jobs!</p>
       </td>
     </tr>
   </table><table class="wrapper" role="module" data-type="image" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="a072c2f7-77ec-4446-b999-26eb5eaca3ec">
     <tbody>
       <tr>
         <td style="font-size:6px; line-height:10px; padding:20px 20px 20px 20px;" valign="top" align="left">
-          <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:35% !important; width:35%; height:auto !important;" width="210" alt="" data-proportionally-constrained="true" data-responsive="true" src="http://cdn.mcauto-images-production.sendgrid.net/ff32634a2a5df988/03bfd179-6bc5-4046-9326-d9c5715d3f49/780x175.png">
+          <img class="max-width" border="0" style="display:block; color:#000000; text-decoration:none; font-family:Helvetica, arial, sans-serif; font-size:16px; max-width:35% !important; width:35%; height:auto !important;" width="210" alt="" data-proportionally-constrained="true" data-responsive="true" src="http://cdn.mcauto-images-production.sendgrid.net/ff32634a2a5df988/2f5720fe-a046-49aa-976b-c594cbf6e7ba/740x140.png">
         </td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="0bee9c53-3f4d-49be-a843-7c14fb0d31c1" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:0px 20px 20px 20px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit"><span style="font-size: 18px"><strong>Here are your job alerts from Educate ME!</strong></span></div><div></div></div></td>
+        <td style="padding:0px 20px 20px 20px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit"><span style="font-size: 18px"><strong>Here are your job alerts from EDCOM HQ Jobs!</strong></span></div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="e93ab101-912c-4a9b-a349-8791fd7eb1a6" data-mc-module-version="2019-10-22">
@@ -148,7 +148,7 @@ const JobAlertEmailTemplate = `
       <tr>
         <td style="padding:0px 20px 20px 20px; line-height:22px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: inherit">Here are the jobs:</div>
 <div style="font-family: inherit; text-align: inherit">{{ jobs }}</div>
-<div style="font-family: inherit; text-align: inherit">Please use the Educate ME website to view more details and apply for jobs.</div><div></div></div></td>
+<div style="font-family: inherit; text-align: inherit">Please use the <a href="https://www.edcomjobs.com">EDCOM HQ Jobs</a> website to view more details and apply for jobs.</div><div></div></div></td>
       </tr>
     </tbody>
   </table><table class="wrapper" role="module" data-type="image" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="746fb065-ce0c-4191-ade2-565444bad396">
@@ -162,7 +162,7 @@ const JobAlertEmailTemplate = `
   </table><table class="module" role="module" data-type="text" border="0" cellpadding="0" cellspacing="0" width="100%" style="table-layout: fixed;" data-muid="904b73af-63ae-41f5-b303-0cc32d2dc9af" data-mc-module-version="2019-10-22">
     <tbody>
       <tr>
-        <td style="padding:20px 20px 20px 20px; line-height:20px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 12px">You are receiving this email because you've signed up with the Educate ME platform. </span><a href="https://educateme.wavelinkllc.com/unsubscribe"><span style="font-size: 12px">Unsubscribe</span></a></div><div></div></div></td>
+        <td style="padding:20px 20px 20px 20px; line-height:20px; text-align:inherit;" height="100%" valign="top" bgcolor="" role="module-content"><div><div style="font-family: inherit; text-align: center"><span style="font-size: 12px">You are receiving this email because you've signed up with the EDCOM HQ Jobs platform. </span><a href="https://www.edcomjobs.com/unsubscribe"><span style="font-size: 12px">Unsubscribe</span></a></div><div></div></div></td>
       </tr>
     </tbody>
   </table></td>

@@ -40,7 +40,7 @@ cron.schedule(process.env.JOB_ALERT_JOB_CRON_EXPRESSION, async function() {
 
       await Email.send(
         educator.emailAddress,
-        'You have new job alerts from Educate ME!',
+        'You have new job alerts from EDCOM HQ Jobs!',
         'Check out these job alerts that were matched to you!',
         Email.templates.JOB_ALERT,
         {
