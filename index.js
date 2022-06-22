@@ -27,11 +27,11 @@ cron.schedule(process.env.JOB_ALERT_JOB_CRON_EXPRESSION, async function() {
     console.info(jobName + ': EDUCATOR:');
     console.info(educator);
     try {
-      const matchingJobs = allJobs.filter(
-        (x => !educator.locations || educator.locations.includes(x.city + ', ' + x.state)) &&
-        (x => !educator.locationTypes || educator.locationTypes.includes(x.locationType)) &&
-        (x => !educator.schoolTypes || educator.locations.includes(x.schoolType)) &&
-        (x => !educator.schoolLevels || educator.locations.includes(x.schoolLevel))
+      const matchingJobs = allJobs.filter(x =>
+        (!req.educator.locations || req.educator.locations.includes(x.city + ', ' + x.state)) &&
+        (!req.educator.locationTypes || req.educator.locationTypes.includes(x.locationType)) &&
+        (!req.educator.schoolTypes || req.educator.schoolTypes.includes(x.schoolType)) &&
+        (!req.educator.schoolLevels || req.educator.schoolLevels.includes(x.schoolLevel))
       );
       console.info(jobName + ': MATCHING JOBS:');
       console.info(matchingJobs);
